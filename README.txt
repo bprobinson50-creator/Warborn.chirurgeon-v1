@@ -16,3 +16,4 @@ DATA
 
 CURRENT CANON INCLUDED
 Level 4 Warborn Chirurgeon, 35/250 XP, 20 G; STR 36, AGI 27, END 28, VIT 31, INT 30, PER 27, WIL 30; Field Surgeon's Mantle; Chirurgeon's Signet; Twin-Wing aspects; Ossuary/Iron Penitent state; current skills and hidden entries.
+pages republish
