@@ -2,8 +2,21 @@
   "name": "Warborn System",
   "short_name": "Warborn",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#080a0e",
   "theme_color": "#0a0d12",
-  "description": "Warborn Chirurgeon personal progression system"
+  "description": "Warborn Chirurgeon personal progression system",
+  "icons": [
+    {
+      "src": "Assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "Assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
