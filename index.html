@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0a0d12">
+<title>Warborn System</title>
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+:root{--bg:#080a0e;--panel:#10151c;--line:#343b46;--text:#eee8dc;--muted:#9ea8b5;--gold:#d2b06c;--blue:#79b9ff;--red:#b75b61}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#18202a,#080a0e 45%);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,sans-serif;padding-bottom:84px}
+header{padding:22px 18px 14px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#080a0eea;backdrop-filter:blur(12px);z-index:3}
+h1{font:600 24px Georgia,serif;letter-spacing:2px;margin:0}.motto{color:var(--gold);font:italic 13px Georgia,serif;margin-top:5px}
+main{max-width:720px;margin:auto;padding:14px}.card{background:#10151ce8;border:1px solid var(--line);border-radius:14px;padding:15px;margin-bottom:12px;box-shadow:0 10px 30px #0005}
+.hero{width:100%;border-radius:12px;border:1px solid #4b4337;max-height:470px;object-fit:cover;object-position:50% 23%}.row{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.level{font:600 22px Georgia,serif}.xpbar{height:11px;background:#252b34;border-radius:8px;overflow:hidden;margin:10px 0}.xpfill{height:100%;background:linear-gradient(90deg,#538bd0,#9ed0ff);width:14%}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.stat{border:1px solid #2e3540;border-radius:10px;padding:10px}.stat b{font-size:20px;color:var(--gold)}
+h2{font:600 18px Georgia,serif;letter-spacing:1px;margin:0 0 10px}.tag{display:inline-block;border:1px solid #4b5563;border-radius:999px;padding:5px 9px;margin:3px;font-size:12px}.rare{color:#77baff}.uncommon{color:#6bd895}.locked{color:#888}
+.quest{padding:11px;border-left:3px solid var(--gold);background:#0c1117;border-radius:7px;margin:8px 0}.enemy{border-left-color:var(--red)}button{background:#171e27;color:var(--text);border:1px solid #4a5360;border-radius:10px;padding:11px 13px;font-weight:650}button:active{transform:scale(.98)}
+input,select,textarea{width:100%;background:#0b0f14;color:var(--text);border:1px solid #3c4552;border-radius:9px;padding:11px;margin:5px 0 9px}textarea{min-height:80px}
+.logitem{border-bottom:1px solid #252c35;padding:9px 0}.small{font-size:12px;color:var(--muted)}nav{position:fixed;bottom:0;left:0;right:0;background:#0b0f14f5;border-top:1px solid var(--line);display:flex;justify-content:center;z-index:5;padding-bottom:env(safe-area-inset-bottom)}
+nav button{border:0;background:none;border-radius:0;padding:14px 15px;color:#aab2bd;font-size:12px}.active{color:var(--gold)!important}
+section{display:none}section.activePage{display:block}
+.wings{display:grid;grid-template-columns:1fr 1fr;gap:8px}.wing{padding:12px;border-radius:10px;text-align:center;border:1px solid #3a414b}.gold{background:linear-gradient(135deg,#30291c,#11151b)}.ash{background:linear-gradient(135deg,#20242a,#0b0d11)}
+</style>
+</head>
+<body>
+<header><h1>WARBORN CHIRURGEON</h1><div class="motto">Life in one hand. Death in the other.</div></header>
+<main>
+<section id="character" class="activePage">
+<div class="card"><img class="hero" src="assets/character-sheet.png" alt="Warborn Chirurgeon character sheet"><div class="row" style="margin-top:12px"><div><div class="level">LEVEL 4</div><div class="small">Warborn Chirurgeon • Epic</div></div><div><b>20 G</b></div></div><div class="xpbar"><div class="xpfill"></div></div><div class="small">35 / 250 XP</div></div>
+<div class="card"><h2>ATTRIBUTES</h2><div class="grid" id="stats"></div></div>
+<div class="card"><h2>TWIN-WING ASPECT</h2><div class="wings"><div class="wing gold">🪽 <b>Golden Wing</b><br><span class="small">Life • Medicine • Protection • Recovery • Hope</span></div><div class="wing ash">☠️ <b>Ashen Wing</b><br><span class="small">Death • Combat • Strength • Resolve • Mortality</span></div></div><p class="small">Balance: UNKNOWN • The Third Path: ???</p></div>
+</section>
+
+<section id="quests">
+<div class="card"><h2>ACTIVE QUEST</h2><div class="quest"><b>Main Quest 004 — Shadows Beneath the Stone</b><br><span class="small">Return to the Ossuary • Finish the Iron Penitent • Uncover deeper chambers • Investigate the unknown presence</span></div></div>
+<div class="card"><h2>COMPLETED</h2><div class="quest">✓ Main Quest 003 — The Weight of the Wounded<br><span class="small">Full Clear</span></div></div>
+</section>
+
+<section id="dungeons">
+<div class="card"><h2>THE OSSUARY OF THE HOLLOW KNIGHT</h2><p>D-Rank Gate • Boss presence detected</p><div class="quest enemy"><b>Iron Penitent — Lv.3</b><div class="xpbar"><div class="xpfill" style="width:37.5%;background:linear-gradient(90deg,#7e3038,#cf747a)"></div></div><span class="small">60 / 160 HP • Scholar's Bane • Physical Dominion weakness</span></div><p class="small">Suture Wraith — DEFEATED ✓<br>Deeper chambers — UNEXPLORED<br>Crimson Key Fragment — 1 / ?</p></div>
+</section>
+
+<section id="skills">
+<div class="card"><h2>SKILLS</h2>
+<span class="tag">⚕ Combat Diagnosis Lv.1</span><span class="tag">⚔ Battlefield Conditioning Lv.1</span><span class="tag">🩸 Bloodkeeper Lv.1</span><span class="tag">Dual Discipline I</span><span class="tag locked">👁 Rhythm Sight — ???</span>
+</div>
+<div class="card"><h2>TITLES & PASSIVES</h2><p><b>First Responder</b><br><span class="small">+5% Combat Diagnosis Skill XP from future Golden Hour scenarios.</span></p><p><b>Clarified Memory I</b><br><span class="small">Lethal Diamond — Trauma Physiology.</span></p></div>
+</section>
+
+<section id="inventory">
+<div class="card"><h2>EQUIPPED</h2><p><b class="rare">Field Surgeon's Mantle — Rare ★★★</b><br><span class="small">Steady Hands I • Field Adaptation • Twin-Wing Resonance ???</span></p><p><b class="uncommon">Chirurgeon's Signet — Uncommon</b><br><span class="small">Field Discipline • Secondary Effect ???</span></p></div>
+<div class="card"><h2>INVENTORY</h2><p>🩸 Crimson Key Fragment ×1<br>🎒 Soldier's Kit<br>⚕ Medic's Aid Bag<br>🥾 Ruck<br>🏋 Training Equipment Access</p></div>
+</section>
+
+<section id="log">
+<div class="card"><h2>ACTIVITY LOG</h2><input id="activity" placeholder="e.g. 30 min EKG study"><select id="type"><option>Medical Study</option><option>Workout / PT</option><option>Army / Field Training</option><option>Discipline</option><option>Other</option></select><textarea id="notes" placeholder="Notes, time, distance, weights, etc."></textarea><button onclick="addLog()">+ Record Activity</button><p class="small">This records your real-world action. Hidden quest/XP judgments can still be resolved with ChatGPT.</p><div id="logs"></div></div>
+<div class="card"><button onclick="exportSave()">Export Save</button> <button onclick="resetLogs()">Clear Log</button><p class="small">Your activity log is stored locally on this device.</p></div>
+</section>
+</main>
+<nav>
+<button class="active" onclick="show('character',this)">CHARACTER</button><button onclick="show('quests',this)">QUESTS</button><button onclick="show('dungeons',this)">GATES</button><button onclick="show('skills',this)">SKILLS</button><button onclick="show('inventory',this)">GEAR</button><button onclick="show('log',this)">LOG</button>
+</nav>
+<script>
+const stats={STR:36,AGI:27,END:28,VIT:31,INT:30,PER:27,WIL:30};
+document.getElementById('stats').innerHTML=Object.entries(stats).map(([k,v])=>`<div class="stat">${k}<br><b>${v}</b></div>`).join('');
+function show(id,b){document.querySelectorAll('section').forEach(x=>x.classList.remove('activePage'));document.getElementById(id).classList.add('activePage');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active')}
+function getLogs(){return JSON.parse(localStorage.getItem('warbornLogs')||'[]')}
+function render(){const x=getLogs();document.getElementById('logs').innerHTML=x.slice().reverse().map(a=>`<div class="logitem"><b>${esc(a.activity)}</b><br><span class="small">${esc(a.type)} • ${new Date(a.time).toLocaleString()}</span><br>${esc(a.notes)}</div>`).join('')}
+function esc(s){return (s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function addLog(){let a=document.getElementById('activity').value.trim();if(!a)return;let x=getLogs();x.push({activity:a,type:document.getElementById('type').value,notes:document.getElementById('notes').value,time:new Date().toISOString()});localStorage.setItem('warbornLogs',JSON.stringify(x));document.getElementById('activity').value='';document.getElementById('notes').value='';render()}
+function resetLogs(){if(confirm('Clear the local activity log?')){localStorage.removeItem('warbornLogs');render()}}
+function exportSave(){const blob=new Blob([JSON.stringify({version:"1.0",player:"Bradley",level:4,xp:[35,250],gold:20,stats,logs:getLogs()},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='warborn-save.json';a.click();URL.revokeObjectURL(a.href)}
+render();
+if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+</script>
+</body></html>

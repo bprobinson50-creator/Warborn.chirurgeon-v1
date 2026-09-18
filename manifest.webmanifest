@@ -1,0 +1,9 @@
+{
+  "name": "Warborn System",
+  "short_name": "Warborn",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#080a0e",
+  "theme_color": "#0a0d12",
+  "description": "Warborn Chirurgeon personal progression system"
+}
